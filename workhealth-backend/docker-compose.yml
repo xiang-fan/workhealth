@@ -1,0 +1,42 @@
+version: '2'
+
+networks:
+  app:
+
+services:
+  db:
+    image: mysql:5.7
+    restart: unless-stopped
+    ports: ["3306:3306"]
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+    volumes:
+        - ./scripts/database/create-db.sql:/docker-entrypoint-initdb.d/create-db.sql
+    networks:
+        - app
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: db
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_USER: ${DB_USER}
+      LDAP_URI: ${LDAP_URI}
+      LDAP_BASE: ${LDAP_BASE}
+    ports: ["3000:3000"]
+    command: >
+        bash -c "
+          # Exit immediately if a command exits with a non-zero status
+          set -e
+          # Wait for mysql
+          wget http://db:3306 --inet4-only --retry-connrefused --spider --waitretry=1 --timeout=0.1 --tries 300 --quiet
+
+          # Migrate and seed DB
+          npm run db:migrate
+          npm run db:seed
+          npm run start
+        "
+    networks:
+      - app

@@ -1,0 +1,34 @@
+.template {
+  span {
+    font-size: 1.5rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  li {
+    font-size: 1.2rem;
+  }
+  margin: 50px 50px;
+  > :not(:first-child) {
+     margin-top: 50px;
+  }
+}
+
+.head-container {
+  &__user-name {
+    float: right;
+  }
+}
+
+.result-value {
+  background-color: unset;
+  color: green;
+}
+
+.result-disabled {
+    background-color: unset;
+  color: red;
+}

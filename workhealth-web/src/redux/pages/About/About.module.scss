@@ -1,0 +1,31 @@
+@import '../../../styles/variables';
+@import '../../../styles/common';
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 auto;
+  color: black;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15vh 0;;
+  max-width: $container;
+  width: 100%;
+  margin: 0 auto;
+
+  img {
+    margin: 60px auto 30px;
+  }
+
+  a {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: $blue;
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "title": {
+    "about": "About"
+  },
+  "errors": {
+    "wrongCreads": "Wrong Username or Password",
+    "unknown": "Unknown error",
+    "noHistory": "No history",
+    "cantOpenLink":"Can't open link"
+  },
+  "buttons": {
+    "login": "Log in",
+    "ok": "Ok",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "startScreening": "Start self-screening",
+    "checkPass": "Check pass",
+    "checkUsername": "Check username",
+    "close": "Close",
+    "share": "Share"
+  },
+  "placeholder": {
+    "username": "Username",
+    "password": "Password",
+    "enterPass": "Enter pass",
+    "enterUsername": "Enter username"
+  },
+  "description": {
+    "version": "Version 0.1",
+    "about": "About",
+    "yes": "Yes",
+    "no": "No",
+    "createdBy": "Created & Developed by",
+    "helloUser": "Hello {{userName}}",
+    "screeningHistory": "Self screening history",
+    "date": "Date",
+    "pass": "Pass",
+    "status": "Status",
+    "personHistory": "Person: {{person}}",
+    "passedNotValid": "PASS NOT VALID",
+    "passedValid": "CAN VISIT",
+    "positive": "You can go to the job. Your pass:",
+    "negative": "STAY AT HOME OR VISIT YOUR DOCTOR",
+    "personalId": "Personal id: {{id}}"
+  },
+  "alert": {
+    "title": "Confirm Logout",
+    "message": "Are you sure you want to logout?"
+  },
+  "links": {
+    "kandasoft": "www.kandasoft.com",
+    "softteco": "www.softteco.com"
+  }
+}

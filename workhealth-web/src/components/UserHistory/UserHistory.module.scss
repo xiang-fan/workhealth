@@ -1,0 +1,81 @@
+@import '../../styles/variables';
+@import '../../styles/common';
+
+.name {
+  margin-top: 30px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.table {
+  padding: 0;
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: $gray;
+
+  &:first-child {
+    position: sticky;
+    top: 0px;
+    background: white;
+    z-index: 5;
+  }
+
+  &:not(:first-child) {
+    background-color: $lightBlue;
+    border: 1px solid $lightBlueBorder;
+  }
+
+  span {
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+
+    @media only screen and (max-width: $media-sm) {
+      padding: 0 5px;
+    }
+  }
+}
+
+.pass {
+  font-weight: 500;
+}
+
+span.status {
+  position: relative;
+  text-align: center;
+
+  &:after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;    
+  }
+
+  @media only screen and (max-width: $media-sm) {
+    min-width: 70px;
+    width: 70px;
+  }
+}
+
+.active {
+  &:after {
+    background: $green;
+  }
+}
+
+.noActive {
+  &:after {
+    background: $red;
+  }
+}

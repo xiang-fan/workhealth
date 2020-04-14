@@ -1,0 +1,166 @@
+@import '../../../styles/variables';
+@import '../../../styles/common';
+
+.wrapper {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+
+  * {
+    color: $gray;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+.inputForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 40px;
+  background: white;
+
+  button {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: $blue;
+    border: none;
+    font-size: 16px;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+
+  button[disabled] {
+    background: $ligntGray;
+    cursor: not-allowed;
+  }
+
+  svg[data-icon="search"] {
+    display: none;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+
+    path {
+      color: $blue;
+    }
+  }
+
+  :global {
+    .ant-input-suffix {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.inputLabel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.passNotFound {
+  font-size: 16px;
+  text-align: center;
+}
+
+.passTitle {
+  color: $green;
+  font-size: 18px;
+}
+
+.passError {
+  color: $red;
+}
+
+.passInfoBottom {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  .passInfoBottomWrapper {
+      display: flex;
+      flex-direction: column;
+  }
+}
+
+.listNamesWrap {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  list-style-type: none;
+  padding: 0;
+}
+
+.nameItem {
+  position: relative;
+  background: $lightBlue;
+  border: 1px solid $lightBlueBorder;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: $lightGray;
+  padding: 0;
+
+  button {
+    padding: 10px 35px 10px 10px;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+  }
+  .buttonWrapper {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 5px;
+      padding-top: 2px;
+  }
+}
+
+.backLink {
+  display: flex;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  transform: rotate(135deg) translateY(50%);
+
+  &:after {
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    background: rgb(250, 251, 252);
+  }
+}
+
+.modalWrap {
+  background: white;
+  max-width: 100%;
+  width: 100%!important;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  :global {
+
+    .ant-modal-body {
+      padding: 0;
+    }
+    
+    .ant-modal-content {
+      min-height: inherit;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+version: "2"
+
+networks:
+  app:
+
+services:
+  ldap:
+    image: dinkel/openldap
+    restart: unless-stopped
+    ports: ["389:389"]
+    environment:
+      SLAPD_PASSWORD: ${LDAP_PASSWORD}
+      SLAPD_DOMAIN: ${LDAP_DOMAIN}
+    networks:
+      - app
+  db:
+    image: mysql:5.7
+    restart: unless-stopped
+    ports: ["3306:3306"]
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+    volumes:
+      - ./scripts/database/create-db.sql:/docker-entrypoint-initdb.d/create-db.sql
+    networks:
+      - app
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: db
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_USER: ${DB_USER}
+      LDAP_URI: ldap://ldap:389
+      LDAP_BASE: ${LDAP_BASE}
+    ports: ["3000:3000"]
+    command: >
+      bash -c "
+        # Exit immediately if a command exits with a non-zero status
+        set -e
+        # Wait for mysql
+        wget http://db:3306 --inet4-only --retry-connrefused --spider --waitretry=1 --timeout=0.1 --tries 300 --quiet
+
+        # Add users to ldap server
+        chmod +x ./scripts/ldap/create-users.sh
+        ./scripts/ldap/create-users.sh $${LDAP_URI} ${LDAP_PASSWORD} ${LDAP_ADMIN_CN} ${LDAP_BASE}
+
+        # Migrate and seed DB
+        npm run db:migrate
+        npm run db:seed
+
+        npm run start
+      "
+    networks:
+      - app

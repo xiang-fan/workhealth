@@ -1,0 +1,57 @@
+@import './variables';
+
+.basicInput {
+  border-radius: 5px;
+  background-color: $lightBlue;
+  border: 1px solid $lightBlueBorder;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  line-height: 1.5;
+  
+  input {
+    background-color: rgba(224, 231, 255, 0);
+  }
+}
+
+.backLink {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  background: $blue;
+  transform: rotate(-45deg);
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: white;
+  }
+}
+
+.logoutButton {
+  display: flex;
+  border: none;
+  background: none;
+  color: $blue;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+
+  img {
+    width: 30px;
+    height: 30px;
+
+    @media only screen and (max-width: $media-sm) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+dn: cn=john,dc=ldap,dc=example,dc=org
+changetype: add
+objectClass: organizationalRole
+objectClass: shadowAccount
+userPassword: {SSHA}oz80PaZJkMh8gv3IBlV9ceFsxcXyS71J
+uid: 1
+
+dn: cn=mark,dc=ldap,dc=example,dc=org
+changetype: add
+objectClass: organizationalRole
+objectClass: shadowAccount
+userPassword: {SSHA}oz80PaZJkMh8gv3IBlV9ceFsxcXyS71J
+uid: 2
+
+dn: cn=doe,dc=ldap,dc=example,dc=org
+changetype: add
+objectClass: organizationalRole
+objectClass: shadowAccount
+userPassword: {SSHA}oz80PaZJkMh8gv3IBlV9ceFsxcXyS71J
+uid: 3
+
+dn: cn=hamill,dc=ldap,dc=example,dc=org
+changetype: add
+objectClass: organizationalRole
+objectClass: shadowAccount
+userPassword: {SSHA}oz80PaZJkMh8gv3IBlV9ceFsxcXyS71J
+uid: 4
+
+dn: cn=carrie,dc=ldap,dc=example,dc=org
+changetype: add
+objectClass: organizationalRole
+objectClass: shadowAccount
+userPassword: {SSHA}oz80PaZJkMh8gv3IBlV9ceFsxcXyS71J
+uid: 5
+
+dn: cn=ford,dc=ldap,dc=example,dc=org
+changetype: add
+objectClass: organizationalRole
+objectClass: shadowAccount
+userPassword: {SSHA}oz80PaZJkMh8gv3IBlV9ceFsxcXyS71J
+uid: 6
