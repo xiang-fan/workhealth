@@ -1,28 +1,30 @@
+import { CAN_NOT_VISIT_WORK, CAN_VISIT_WORK, USER_TITLE } from '../../../constants/constants';
 import React, { Component } from 'react';
-import api from '../../../api';
-import moment from 'moment';
-import { connect } from 'react-redux';
-import { compose } from 'recompose';
-import { withStyles } from '@material-ui/styles';
+
+import { API_BASE_ADDRESS } from '../../../api/api';
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
 import { Layout } from '../../../components';
-import confirmBtn from '../../../images/confirmBtn.png';
-import declineBtn from '../../../images/declineBtn.png';
-import { styles } from './styles';
-import pdfGenerator from '../../../utils/pdfGenerator';
-import { USER_TITLE, CAN_VISIT_WORK, CAN_NOT_VISIT_WORK } from '../../../constants/constants';
 import SelfScreeningTemplate from '../../../components/PdfBlanks/SelfScreeningTemplate/SelfScreeningTemplate';
-import { API_BASE_ADDRESS } from '../../../api/api';
+import api from '../../../api';
+import { compose } from 'recompose';
+import confirmBtn from '../../../images/confirmBtn.png';
+import { connect } from 'react-redux';
+import declineBtn from '../../../images/declineBtn.png';
+import moment from 'moment';
+import pdfGenerator from '../../../utils/pdfGenerator';
+import { styles } from './styles';
+import { withStyles } from '@material-ui/styles';
 
 const TIME_FORMAT = 'MMMM Do YYYY'
 
 class Main extends Component {
     state ={
         history: [],
+        questionnaire: [],
         isTestStarted: false,
         questions: [],
         questionIndex: 0,
@@ -62,12 +64,15 @@ class Main extends Component {
     }
 
     onScreeningHistory = (status) => {
-        api.user.screeningHistory().then(res => this.setState({ 
-            isFailedTest: status === "failed",
-            isTestStarted: false,
-            isModalOpen: true,
-            history: res
-        }));
+        api.user.screeningHistory().then((res) => {
+            this.setState({
+                isFailedTest: status === "failed",
+                isTestStarted: false,
+                isModalOpen: true,
+                history: res
+            });
+            console.log(res);
+        })
     }
 
     onInitialScreeningHistory = () => {
@@ -111,10 +116,32 @@ class Main extends Component {
     }
 
     tableRowClicked(item) {
-        this.setState({
-            code: item.status? item.pass : 0,
-            isTableModal: true,
-            isModalOpen: true
+        const test = this.state.history.find(itemC => itemC.pass === item.pass);
+        api.user.getUserResult(test && test.id).then(res => {
+            this.setState({
+                code: item.status? item.pass : 0,
+                isTableModal: true,
+                isModalOpen: true,
+                questionnaire: res.questionnaire
+            })
+            console.log(item);
+        
+            // pdfProps = {
+            //     questions: res.questionnaire.map(question => ({
+            //         question: question.question,
+            //         answer: question.answer ? 'Yes': 'No'
+            //     })),
+            //     userName: this.props.userName,
+            //     passCode: res.pass,
+            //     result: res.pass ? CAN_VISIT_WORK : CAN_NOT_VISIT_WORK,
+            //     time: moment(res.createdAt).format(TIME_FORMAT)
+            // };
+            // pdfGenerator(
+            //     SelfScreeningTemplate, 
+            //     {filename: 'SelfScreening.pdf'},
+            //     pdfProps
+            // );
+            console.log(res);
         })
     }
 
@@ -158,7 +185,7 @@ class Main extends Component {
             );
         }
         this.setState({
-            isModalOpen: false, 
+            isModalOpen: false,
             isFailedTest: false,
             questionIndex: 0,
             isTableModal: false,
@@ -279,12 +306,22 @@ class Main extends Component {
                         <div>
                         <p className={classes.yourPass}>Your pass</p>
                         <p className={classes.passCode}>{this.state.code}</p>
-                    </div>
+                        </div>
                     ) : <p className={classes.warning}>{stayAtHome}</p>}
-                    
+                <div className={classes.reportWrapper}>
+                    {this.state.questionnaire.map((item, index) => (
+                        <div key={index} className={classes.questionnaireList}>
+                            <div className={classes.questionName}>{item.question}</div>
+                            {item.answer ? (
+                                <div className={classes.answerRed}>Yes</div>
+                            ) : <div className={classes.answerGreen}>No</div>
+                            }
+                        </div>
+                    ))}
+                </div>
                 <div className={classes.buttonWrapper}>
                     <Button variant="outlined" className={classes.closeButton} onClick={() => this.closeModal()}>Close</Button>
-                    <Button variant="contained" className={classes.downloadButton} onClick={() => this.downloadPdf(this.state.isTableModal)}>Download</Button>
+                    {/* <Button variant="contained" className={classes.downloadButton} onClick={() => this.downloadPdf(this.state.isTableModal)}>Download</Button> */}
                 </div>
             </div> 
         ) : (
