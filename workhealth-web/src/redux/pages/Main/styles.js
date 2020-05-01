@@ -32,7 +32,7 @@ export const styles = () => ({
     },
     tableItem: {
         display: 'inline-block',
-        margin: '15px',
+        margin: '15px'
     },
     tableItemPass: {
         display: 'inline-block',
