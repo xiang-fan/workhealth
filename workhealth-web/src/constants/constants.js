@@ -8,7 +8,7 @@ export const USER_DATA = 'USER_DATA';
 
 export const ADMIN_TITLE = 'Guard';
 export const ABOUT_TITLE = 'About';
-export const USER_TITLE = 'Personal self-screening';
+export const USER_TITLE = 'Logout';
 
 export const CAN_VISIT_WORK = 'CAN VISIT';
 export const CAN_NOT_VISIT_WORK = `CAN${SINGLE_QUOTE}T VISIT`;
