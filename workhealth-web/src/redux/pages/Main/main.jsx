@@ -197,7 +197,7 @@ class Main extends Component {
         const { history, isTestStarted, questions, questionIndex, isModalOpen } = this.state
         const { classes, userName } = this.props;
         const stayAtHome = 'STAY AT HOME OR VISIT YOUR DOCTOR!';
-        const youCanGo = 'You can go to the job. Your pass:';
+        const youCanGo = 'Safe to go to work. You pass:';
         const imgPath = this.state.questions[this.state.questionIndex] && this.state.questions[this.state.questionIndex].img;
         const imgPathRemovedSlash = (imgPath && imgPath.startsWith('/')) ? imgPath.slice(1) : imgPath;
         const fullPath = `${API_BASE_ADDRESS}${imgPathRemovedSlash}`;
@@ -304,7 +304,7 @@ class Main extends Component {
             <div className={classes.modalWrapper}>
                     {this.state.code ? (
                         <div>
-                        <p className={classes.yourPass}>Your pass</p>
+                        <p className={classes.yourPass}>You pass</p>
                         <p className={classes.passCode}>{this.state.code}</p>
                         </div>
                     ) : <p className={classes.warning}>{stayAtHome}</p>}
@@ -336,7 +336,7 @@ class Main extends Component {
                 }
                 <div className={classes.buttonWrapper}>
                     <Button variant="outlined" className={classes.closeButton} onClick={() => this.closeModal()}>Close</Button>
-                    <Button variant="contained" className={classes.downloadButton} onClick={() => this.downloadPdf(this.state.isTableModal)}>Download</Button>
+                    {/* <Button variant="contained" className={classes.downloadButton} onClick={() => this.downloadPdf(this.state.isTableModal)}>Download</Button> */}
                 </div>
             </div> 
         )}    

@@ -59,7 +59,8 @@ export const styles = () => ({
         objectFit: 'cover'
     },
     testImg: {
-        width: '50%',
+        width: '100%',
+        height: '100%',
         cursor: 'pointer'
     },
     imgWrapper: {
@@ -69,7 +70,8 @@ export const styles = () => ({
     },
     dialogTitle: {
         color: '#027FFF',
-        paddingLeft: 0
+        paddingLeft: 0,
+        textAlign: 'center'
     },
     modalWrapper: {
         width: '100%',
@@ -95,8 +97,8 @@ export const styles = () => ({
     },
     buttonWrapper: {
         display: 'flex',
-        justifyContent: 'space-between',
-        paddingBottom: '24px'
+        justifyContent: 'center',
+        paddingBottom: '24px',
     },
     buttonContainer: {
         display: 'flex',
@@ -140,7 +142,7 @@ export const styles = () => ({
         borderRadius: '5px',
         backgroundColor: '#eae7ff',
         border: '1px solid #e0e7e2',
-
+        textAlign: 'center'
     },
     helloText: {
         fontSize: '18px',
@@ -153,6 +155,7 @@ export const styles = () => ({
     },
     yourPass: {
         fontSize: '18px',
+        textAlign: 'center'
     },
     centeredItem: {
         display: 'flex',
