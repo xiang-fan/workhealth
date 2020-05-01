@@ -6,7 +6,7 @@ export const styles = () => ({
     },
     container: {
         marginTop: '20px',
-        width: '500px'
+        width: '50%'
     },
     paper: {
       padding: '2px',
