@@ -1,8 +1,8 @@
-import React from 'react';
 import * as moment from 'moment';
 
-import { Layout } from '../index';
 import { ADMIN_TITLE } from '../../constants/constants';
+import { Layout } from '../index';
+import React from 'react';
 import styles from './UserHistory.module.scss';
 
 const PASSED = 'passed';

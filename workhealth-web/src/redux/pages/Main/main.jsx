@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Grid from '@material-ui/core/Grid';
 import { Layout } from '../../../components';
 import SelfScreeningTemplate from '../../../components/PdfBlanks/SelfScreeningTemplate/SelfScreeningTemplate';
@@ -14,6 +15,7 @@ import { compose } from 'recompose';
 import confirmBtn from '../../../images/confirmBtn.png';
 import { connect } from 'react-redux';
 import declineBtn from '../../../images/declineBtn.png';
+import { faBookMedical } from '@fortawesome/free-solid-svg-icons'
 import moment from 'moment';
 import pdfGenerator from '../../../utils/pdfGenerator';
 import { styles } from './styles';
@@ -265,7 +267,7 @@ class Main extends Component {
             </Grid>
             <Grid container justify="center">
                 <Grid item md={12} xs={12}>
-                    <h2 className={classes.screeningTextText}>Self-screening history</h2>
+                    <h2 className={classes.screeningTextText}><FontAwesomeIcon icon={faBookMedical} /> Self-screening history</h2>
                 </Grid>
             </Grid>
             {screenTable}
