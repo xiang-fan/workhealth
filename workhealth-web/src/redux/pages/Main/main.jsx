@@ -207,7 +207,7 @@ class Main extends Component {
                 <Grid item md={12} xs={12}>
                     <div className={classes.header}>
                         <Grid container spacing={0}>
-                            <Grid item md={5} xs={7}>
+                            <Grid item md={5} xs={6}>
                                 <span className={classes.tableItem}>Date</span>
                             </Grid>
                             <Grid item md={5} xs={3}>
@@ -220,9 +220,8 @@ class Main extends Component {
                     </div>
                     {history.map((item, index) => (
                     <div className={classes.item} key={index} onClick={() => this.tableRowClicked(item)}>
-                        <Grid container spacing={3}>
-                        
-                            <Grid item md={5} xs={7}>
+                        <Grid container spacing={2}>
+                            <Grid item md={5} xs={6}>
                                 <span className={classes.tableItem}>{moment(item.date).format('hh:mm A / MMMM DD.YYYY')}</span>
                             </Grid>
                             <Grid item md={5} xs={3}>
