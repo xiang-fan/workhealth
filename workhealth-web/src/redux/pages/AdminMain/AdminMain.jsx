@@ -1,13 +1,15 @@
+import * as moment from 'moment';
+
+import { ADMIN_TITLE, CAN_VISIT_WORK, PASS_NOT_VALID } from '../../../constants/constants';
+import { CustomModal, Layout, UserHistory } from '../../../components';
 import React, { PureComponent } from 'react';
+
+import { Input } from 'antd';
+import api from '../../../api';
 import { compose } from 'recompose';
 import { createForm } from 'rc-form';
-import * as moment from 'moment';
-import { Input } from 'antd';
-
-import { CustomModal, UserHistory, Layout } from '../../../components';
-import { ADMIN_TITLE, CAN_VISIT_WORK, PASS_NOT_VALID } from '../../../constants/constants';
-import api from '../../../api';
 import styles from './AdminMain.module.scss';
+
 const { Search } = Input;
 class AdminMain extends PureComponent {
   state = {
@@ -94,14 +96,16 @@ class AdminMain extends PureComponent {
     } = this.state;
     const { form } = this.props;
     const isValidPass = passInfo && moment(passInfo.createdAt).format('D') === moment().format('D');
-    
+
     return (
       <>
         <Layout title={ADMIN_TITLE}>
           <section className={styles.wrapper}>
             <form className={styles.inputForm}>
               <label className={styles.inputLabel}>
-                <span>Enter pass</span>
+                <h2>Security Administration</h2>
+                <br></br>
+                <span>Enter pass</span >
                 {form.getFieldDecorator('pass', {
                   initialValue: '',
                 })(

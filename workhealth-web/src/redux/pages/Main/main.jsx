@@ -248,8 +248,7 @@ class Main extends Component {
             title={USER_TITLE}
         >
         <Container fixed className={classes.container}>
-            
-            {!this.state.isTestStarted 
+            {!this.state.isTestStarted
             &&(<>
             <Grid container justify="center">
                 <Grid item md={12} xs={12}>
@@ -266,7 +265,7 @@ class Main extends Component {
             </Grid>
             <Grid container justify="center">
                 <Grid item md={12} xs={12}>
-                    <h2 className={classes.screeningTextText}>Self-screening</h2>
+                    <h2 className={classes.screeningTextText}>Self-screening history</h2>
                 </Grid>
             </Grid>
             {screenTable}

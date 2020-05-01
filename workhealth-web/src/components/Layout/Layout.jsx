@@ -1,8 +1,8 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { faBuilding } from '@fortawesome/free-solid-svg-icons'
 import { logoutUser } from '../../redux/pages/Login/actions';
-import logoutImage from '../../images/logout.png';
 import styles from './Layout.module.scss';
 
 const Layout = ({ 
@@ -19,15 +19,14 @@ const Layout = ({
         {leftBar &&
           <button onClick={action} className={styles.backLink} />
         }
-        <h2>{title}</h2>
         {showLogout &&
           <button onClick={logoutUser} className={styles.logoutButton}>
-            <img src={logoutImage} alt="logout"/>
+          <h2><FontAwesomeIcon icon={faBuilding} /></h2> &nbsp; <h3>{title}</h3>
           </button>
         }
       </div>
     </header>
-    <section className={styles.wrapper}>    
+    <section className={styles.wrapper}>
       {children}
     </section>
   </>
