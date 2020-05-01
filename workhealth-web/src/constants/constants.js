@@ -6,7 +6,7 @@ export const CLEAR_AUTH_FAIL = 'CLEAR_AUTH_FAIL';
 export const LOGOUT = 'LOGOUT';
 export const USER_DATA = 'USER_DATA';
 
-export const ADMIN_TITLE = 'Guard';
+export const ADMIN_TITLE = 'Logout';
 export const ABOUT_TITLE = 'About';
 export const USER_TITLE = 'Logout';
 

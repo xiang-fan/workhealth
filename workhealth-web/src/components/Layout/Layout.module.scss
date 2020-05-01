@@ -19,9 +19,14 @@
   display: flex;
   padding: 30px 15px;
   align-items: center;
-  
+
   h2 {
     color: $black;
+    z-index: 1;
+  }
+
+  h3 {
+    color: $blue;
     z-index: 1;
   }
 }
