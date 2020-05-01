@@ -107,7 +107,7 @@ class AdminMain extends PureComponent {
               <label className={styles.inputLabel}>
               <h2><FontAwesomeIcon icon={faUserShield} /> Security Administration</h2>
                 <br></br>
-                <span>Enter pass</span >
+                <span>Check employee pass</span >
                 {form.getFieldDecorator('pass', {
                   initialValue: '',
                 })(
@@ -142,7 +142,7 @@ class AdminMain extends PureComponent {
             {passInfo !== null && !passInfo && <p className={styles.passNotFound}>No such pass</p>}
             <form className={styles.inputForm}>
               <label className={styles.inputLabel}>
-                <span>Enter Username</span>
+                <span>Search employee name</span>
                 {form.getFieldDecorator('name', {
                   initialValue: '',
                 })(

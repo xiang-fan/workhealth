@@ -14,8 +14,8 @@ const UserHistory = ({ history = [], name, personalId, onCloseModal }) => (
     title={ADMIN_TITLE}
   >
     <div className={styles.name}>
-        <p>{`Person: ${name}`}</p>
-        <p>{`Personal id: ${personalId}`}</p>
+        <p>{`Employee: ${name}`}</p>
+        <p>{`Employee id: ${personalId}`}</p>
     </div>
     <ul className={styles.table}>
       <li className={styles.row}>
