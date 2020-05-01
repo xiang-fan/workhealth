@@ -6,7 +6,6 @@ export const styles = () => ({
     },
     container: {
         marginTop: '20px',
-        width: '50%'
     },
     paper: {
       padding: '2px',
@@ -20,6 +19,7 @@ export const styles = () => ({
         top: 0,
         color: '#fefefe',
         background: '#027FFF',
+        paddingRight: '10px'
     },
     item: {
         backgroundColor: '#eae7ff',
@@ -37,19 +37,19 @@ export const styles = () => ({
     tableItemPass: {
         display: 'inline-block',
         margin: '15px',
-        paddingLeft: '12px'
+        paddingLeft: '20px'
     },
     redDot: {
-        height: '15px',
-        width: '15px',
+        height: '10px',
+        width: '10px',
         backgroundColor: '#F92400',
         borderRadius: "50%",
         display: 'inline-block',
         margin: '15px'
     },
     greenDot: {
-        height: '15px',
-        width: '15px',
+        height: '10px',
+        width: '10px',
         backgroundColor: '#36B626',
         borderRadius: "50%",
         display: 'inline-block',
