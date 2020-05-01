@@ -38,16 +38,16 @@ export const styles = () => ({
         paddingLeft: '12px'
     },
     redDot: {
-        height: '10px',
-        width: '10px',
+        height: '15px',
+        width: '15px',
         backgroundColor: '#F92400',
         borderRadius: "50%",
         display: 'inline-block',
         margin: '15px'
     },
     greenDot: {
-        height: '10px',
-        width: '10px',
+        height: '15px',
+        width: '15px',
         backgroundColor: '#36B626',
         borderRadius: "50%",
         display: 'inline-block',
