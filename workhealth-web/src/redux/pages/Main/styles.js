@@ -6,6 +6,7 @@ export const styles = () => ({
     },
     container: {
         marginTop: '20px',
+        width: '500px'
     },
     paper: {
       padding: '2px',
@@ -17,7 +18,8 @@ export const styles = () => ({
         marginBottom: '-15px',
         position: 'sticky',
         top: 0,
-        background: 'white',
+        color: '#fefefe',
+        background: '#027FFF',
     },
     item: {
         backgroundColor: '#eae7ff',
