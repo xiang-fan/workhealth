@@ -24,7 +24,7 @@ const About = () => (
       <a target="_blank" href={kandaLink} rel="noopener noreferrer">www.kandasoft.com</a>
       <img src={SofttecoLogo} height="37px" alt="Softteco"/>
       <a target="_blank" href={softtecoLink} rel="noopener noreferrer">www.softteco.com</a>
-      <img src={HqoLogo} height="37px" alt="Softteco"/>
+      <img src={HqoLogo} height="37px" alt="hqo"/>
       <a target="_blank" href={hqoLink} rel="noopener noreferrer">www.hqo.co</a>
     </section>
   </Layout>
